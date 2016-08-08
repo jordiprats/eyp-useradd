@@ -17,56 +17,54 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Manages **useradd** template file
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+Manages default vaules for **useradd**
 
 ## Setup
 
 ### What useradd affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* package containing **/etc/default/useradd**
+* **/etc/default/useradd** itself
 
 ### Setup Requirements
 
-This module requires pluginsync enabled 
+This module requires pluginsync enabled
 
 ### Beginning with useradd
 
-The very basic steps needed for a user to get the module up and running.
+Defaults are safe enough:
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+```puppet
+class { 'useradd': }
+```
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+Nothing fancy here.
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### useradd
+
+* **group**: The group name or ID for a new user's initial group (when the **-N/--no-user-group** is used or when the **USERGROUPS_ENAB** variable is set to **no** in **/etc/login.defs**). The named group must exist, and a numerical group **ID** must have an existing entry (default: 100)
+* **home**: The default base directory for the system if no homedir (-d) is specified. **home** is concatenated with the account name to define the home directory. (default: /home)
+* **inactive**:  The number of days after a password expires until the account is permanently disabled. A value of 0 disables the account as soon as the password has expired, and a value of -1 disables the feature (default: -1)
+* **expire**: The date on which the user account will be disabled. The date is specified in the format YYYY-MM-DD (default: undef)
+* **shell**: The name of the user's login shell (default: /sbin/nologin)
+* **skel**:  The skeleton directory, which contains files and directories to be copied in the user's home directory, when the home directory is created by useradd. (default: /etc/skel)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Tested on:
+* CentOS 5
+* CentOS 6
+* CentOS 7
+* Ubuntu 14.04
+* SLES 11 SP3
 
 ## Development
 
@@ -75,7 +73,7 @@ have some test to check both presence and absence of any feature
 
 ### TODO
 
-TODO list
+* **/etc/login.defs** support
 
 ### Contributing
 

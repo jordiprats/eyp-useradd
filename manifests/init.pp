@@ -2,18 +2,17 @@
 #
 # === useradd documentation
 #
-class useradd(
-                            $manage_package        = true,
-                            $package_ensure        = 'installed',
-                            $manage_service        = true,
-                            $manage_docker_service = true,
-                            $service_ensure        = 'running',
-                            $service_enable        = true,
-                          ) inherits useradd::params{
+class useradd (
+                $group = '100',
+                $home = '/home',
+                $inactive = '-1',
+                $expire = undef,
+                $shell = '/sbin/nologin',
+                $skel = '/etc/skel',
+              ) inherits useradd::params{
 
   class { '::useradd::install': } ->
-  class { '::useradd::config': } ~>
-  class { '::useradd::service': } ->
+  class { '::useradd::config': } ->
   Class['::useradd']
 
 }
