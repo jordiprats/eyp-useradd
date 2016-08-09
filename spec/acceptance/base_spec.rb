@@ -17,7 +17,7 @@ describe 'useradd class' do
       expect(apply_manifest(pp).exit_code).to eq(0)
     end
 
-    describe file("/opt/tomcat-2222/lib/org/apache/catalina/startup/Authenticators.properties") do
+    describe file("/etc/default/useradd") do
       it { should be_file }
       its(:content) { should match 'GROUP=100' }
       its(:content) { should match 'HOME=/home' }
