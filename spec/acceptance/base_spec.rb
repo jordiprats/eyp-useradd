@@ -17,5 +17,15 @@ describe 'useradd class' do
       expect(apply_manifest(pp).exit_code).to eq(0)
     end
 
+    describe file("/opt/tomcat-2222/lib/org/apache/catalina/startup/Authenticators.properties") do
+      it { should be_file }
+      its(:content) { should match 'GROUP=100' }
+      its(:content) { should match 'HOME=/home' }
+      its(:content) { should match 'INACTIVE=-1' }
+      its(:content) { should match 'EXPIRE=' }
+      its(:content) { should match 'SHELL=/sbin/nologin' }
+      its(:content) { should match 'SKEL=/etc/skel' }
+    end
+
   end
 end
