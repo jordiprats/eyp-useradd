@@ -1,7 +1,3 @@
-# == Class: useradd
-#
-# === useradd documentation
-#
 class useradd (
                 $group    = '100',
                 $home     = '/home',
