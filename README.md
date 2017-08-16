@@ -1,19 +1,6 @@
-# useradd
+# useradd - DEPRECATED -
 
-#### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description](#module-description)
-3. [Setup](#setup)
-    * [What useradd affects](#what-useradd-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with useradd](#beginning-with-useradd)
-4. [Usage](#usage)
-5. [Reference](#reference)
-5. [Limitations](#limitations)
-6. [Development](#development)
-    * [TODO](#todo)
-    * [Contributing](#contributing)
 
 ## Overview
 
@@ -27,8 +14,7 @@ Manages default vaules for **useradd**
 
 ### What useradd affects
 
-* package containing **/etc/default/useradd**
-* **/etc/default/useradd** itself
+
 
 ### Setup Requirements
 
@@ -48,14 +34,7 @@ Nothing fancy here.
 
 ## Reference
 
-### useradd
 
-* **group**: The group name or ID for a new user's initial group (when the **-N/--no-user-group** is used or when the **USERGROUPS_ENAB** variable is set to **no** in **/etc/login.defs**). The named group must exist, and a numerical group **ID** must have an existing entry (default: 100)
-* **home**: The default base directory for the system if no homedir (-d) is specified. **home** is concatenated with the account name to define the home directory. (default: /home)
-* **inactive**:  The number of days after a password expires until the account is permanently disabled. A value of 0 disables the account as soon as the password has expired, and a value of -1 disables the feature (default: -1)
-* **expire**: The date on which the user account will be disabled. The date is specified in the format YYYY-MM-DD (default: undef)
-* **shell**: The name of the user's login shell (default: /sbin/nologin)
-* **skel**:  The skeleton directory, which contains files and directories to be copied in the user's home directory, when the home directory is created by useradd. (default: /etc/skel)
 
 ## Limitations
 
