@@ -21,7 +21,7 @@ class useradd::params {
         {
           case $::operatingsystemrelease
           {
-            /^1[46].*$/:
+            /^1[468].*$/:
             {
               $package_name='passwd'
             }
