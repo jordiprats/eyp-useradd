@@ -40,7 +40,7 @@ class useradd::params {
         {
           case $::operatingsystemrelease
           {
-            '11.3':
+            /^1[12].3$/:
             {
               $package_name='pwdutils'
             }
