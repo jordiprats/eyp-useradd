@@ -40,9 +40,13 @@ class useradd::params {
         {
           case $::operatingsystemrelease
           {
-            /^1[12].3$/:
+            '11.3':
             {
               $package_name='pwdutils'
+            }
+            '12.3':
+            {
+              $package_name='shadow'
             }
             default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
           }
