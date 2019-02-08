@@ -44,7 +44,7 @@ class useradd::params {
             {
               $package_name='pwdutils'
             }
-            '12.3':
+            /^12.[34]/:
             {
               $package_name='shadow'
             }
