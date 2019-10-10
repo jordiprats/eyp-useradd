@@ -6,7 +6,7 @@ class useradd::params {
     {
       case $::operatingsystemrelease
       {
-        /^[5-7].*$/:
+        /^[5-8].*$/:
         {
           $package_name='shadow-utils'
         }
